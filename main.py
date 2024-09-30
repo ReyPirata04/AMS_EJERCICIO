@@ -1,3 +1,4 @@
+#Clase Automóvil con su atributo y metodos
 class Automovil:
     ruedas = 4
     def __init__(self,color,marca,aceleracion,velocidad):
@@ -6,29 +7,31 @@ class Automovil:
         self.aceleracion = aceleracion
         self.velocidad = velocidad
 
-    def acelerar(velocidad,aceleracion):
-        velocidad += aceleracion
+    def acelerar(self):
+        self.velocidad += self.aceleracion
+        return self.velocidad
 
-    def frenar(velocidad, aceleracion):
-        velocidad -= aceleracion
-
+    def frenar(self):
+        self.velocidad -= self.aceleracion
+        return self.velocidad
+#Primera instancia coche, y mostrada por consola las ruedas y la aceleración
 coche1 = Automovil("Negro","Chevrolet",5,100)
 
 print("Ruedas",coche1.ruedas, "\n Aceleracion:", coche1.aceleracion)
 
+
+#Aceleración modificada y mostrar por pantalla ambas aceleraciones
 acleracion_mod = 10
 coche1.aceleracion += acleracion_mod
 
 print("Aceleracion agregada: ", acleracion_mod)
 print("Aceleracion ya modificada: ",coche1.aceleracion)
 
+
+#Creada la 2da instancia de la clase, frenao se muestran los resultados
 coche2 = Automovil("blanco","ford", 7, 100)
 
-velocidad_coche2 = coche2.velocidad
-aceleracion_coche2 = coche2.aceleracion
+frenada = coche2.frenar()
 
-freno_coche2 = coche2.frenar(velocidad_coche2,aceleracion_coche2)
-
-print("Resultado por frenar el coche 2 ", freno_coche2)
-
+print("Esta es la velocidad del coche ford al frenar: ",frenada)
 

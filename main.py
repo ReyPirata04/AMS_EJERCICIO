@@ -20,8 +20,16 @@ class Automovil(ABC):
     def frenar(self):
         self.velocidad -= self.aceleracion
         return self.velocidad
+
+class Coche(Automovil):
+    def __init__(self, color, marca, aceleracion, velocidad):
+        super().__init__(color, marca, aceleracion, velocidad)
+
+    def conducir(self):
+        print(f"Conduciendo un {self.marca} de color {self.color}")
+
 #Primera instancia coche, y mostrada por consola las ruedas y la aceleración
-coche1 = Automovil("Negro","Chevrolet",5,100)
+coche1 = Coche("Negro","Chevrolet",5,100)
 
 print("Ruedas",coche1.ruedas, "\n Aceleracion:", coche1.aceleracion)
 
@@ -35,7 +43,7 @@ print("Aceleracion ya modificada: ",coche1.aceleracion)
 
 
 #Creada la 2da instancia de la clase, frenao se muestran los resultados
-coche2 = Automovil("blanco","ford", 7, 100)
+coche2 = Coche("blanco","ford", 7, 100)
 
 frenada = coche2.frenar()
 
@@ -59,16 +67,20 @@ class AutomovilVolador(Automovil):
         self.esta_volando = esta_volando
 
     def vuela(self):
-        if self.esta_volando == True:
+        if self.esta_volando:
             print(f"El {self.marca} esta volando")
         else:
-            print("El {self.marca} esta por volar")
+            print(f"El {self.marca} esta por volar")
 
     def aterriza(self):
-        if self.esta_volando == False:
-            print("El {self.marca} esta aterrizando")
+        if self.esta_volando:
+            self.esta_volando = False
+            print(f"El {self.marca} esta aterrizando")
         else:
-            print("El {self.marca} esta por aterrizar")
+            print(f"El {self.marca} ya esta en tierra")
+
+    def conducir(self):
+        print(f"Conduciendo un {self.marca} volador de color {self.color}")
 
 
 Automovilvolador = AutomovilVolador("Blanco", "Tesla", 10, 200)
@@ -82,16 +94,46 @@ print(f"Velocidad del {Automovilvolador.marca} volador: {Automovilvolador.veloci
 Automovilvolador.vuela()
 Automovilvolador.aterriza()
 
+class Figura(ABC):
 
+    @abstractmethod
+    #Área = Base x Altura
+    def area(self):
+        pass
 
+    @abstractmethod
+    #Perímetro += (Cantidad De Lados)
+    def perimetro(self):
+        pass
 
+class Cuadrado(Figura):
+    def __init__(self, lados):
+        self.lados = lados
 
+    #Área = (EL Cuadrado del cm de sus lados) 
+    def area(self):
+        area=self.lados**2
+        return area
+    
+    #Perímetro = (Suma de sus cuatro lados iguales)
+    def perimetro(self):
+        perimetro = 4 * self.lados
+        return perimetro
+    
 
+class Circulo(Figura):
+    def __init__(self, radio):
+        self.radio = radio
+    
+    def area(self):
+        area = 3.14 * self.radio**2
+        return area
+    
+    def perimetro(self):
+        perimetro = 2*self.radio*3.
+        return perimetro
+    
 
+cuadrado1 = Cuadrado(5)
 
-
-
-
-
-
-
+print(f"El perimetro del cuadrado es: {cuadrado1.perimetro()} ")

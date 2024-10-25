@@ -1,9 +1,9 @@
-from .automovil import Automovil
+from .autoMovil import Automovil
 
 class AutomovilVolador(Automovil):
     ruedas=6
-    def __init__(self, color, marca, aceleracion, velocidad, esta_volando=True):
-        super().__init__(color, marca, aceleracion, velocidad)
+    def __init__(self, año, color, marca, modelo,aceleracion, velocidad, esta_volando=True):
+        super().__init__(año,color, marca, modelo, aceleracion, velocidad)
         self.esta_volando = esta_volando
 
     def vuela(self):

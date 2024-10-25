@@ -1,15 +1,15 @@
-from abc import ABC, abstractmethod
+from .vehiculo import Vehiculo
 
-#Clase Automóvil con su atributo y metodos
-class Automovil(ABC):
+#Clase automovil con su atributo y metodos
+class Automovil(Vehiculo):
     ruedas = 4
-    def __init__(self,color,marca,aceleracion,velocidad):
+    def __init__(self, año, color, marca, modelo, aceleracion, velocidad):
+        super().__init__(año, modelo)
         self.color = color
         self.marca = marca
         self.aceleracion = aceleracion
         self.velocidad = velocidad
 
-    @abstractmethod
     def conducir(self):
         pass
 

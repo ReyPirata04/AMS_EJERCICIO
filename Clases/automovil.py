@@ -20,3 +20,6 @@ class Automovil(Vehiculo):
     def frenar(self):
         self.velocidad -= self.aceleracion
         return self.velocidad
+    
+    def datos(self):
+        return(f"Tipo de automovil: {self._modelo}\nCantidad de ruedad: {self.ruedas}")

@@ -21,3 +21,6 @@ class AutomovilVolador(Automovil):
 
     def conducir(self):
         print(f"Conduciendo un {self.marca} volador de color {self.color}")
+
+    def datos(self):
+        return (f"Tipo de autovolador: {self._modelo}\nCantidad de ruedas: {self.ruedas}")

@@ -46,7 +46,14 @@ print("Nuevo Año del vehiculo1:",vehiculo1.getAño())
 print("Nuevo Modelo del vehiculo1:",vehiculo1._modelo)
 
 
+def datosVehiculo(vehiculo):
+    return vehiculo.datos()
 
+print(datosVehiculo(Automovilvolador))
+print(datosVehiculo(coche1))
+print(datosVehiculo(coche2))
+
+print("Tipo de clase: ", type(coche1))
 
 
 
